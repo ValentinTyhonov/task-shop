@@ -9,8 +9,6 @@
 	}
 </style>
 
-<script src="<c:url value="/js/jquery-simple-pagination-plugin.js"/>"></script>
-
 <div class="single-product-area">
     <div class="container">
         <div class="row">
