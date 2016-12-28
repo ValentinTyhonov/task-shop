@@ -20,12 +20,12 @@ document.getElementById('liveSearch').oninput = function () {
 	            		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
 	            		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
 	            		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-	            		'<sec:authorize access="isAuthenticated()">' +
 	            		'<div class="product-option-shop">' +
 	            		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-	            		'</div></sec:authorize></div></div>';
+	            		'</div></div></div>';
 	            }
 	            document.getElementById('box').innerHTML = all;
+	            security();
 	        }
 	    })
 	}
@@ -49,20 +49,21 @@ document.getElementById('price-slider').oninput = function () {
             		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
             		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
             		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-            		'<sec:authorize access="isAuthenticated()"' +
             		'<div class="product-option-shop">' + 
             		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-            		'</div></sec:authorize></div></div>';
+            		'</div></div></div>';
             }
             document.getElementById('max-price').innerHTML = "Max price: $" + price;
             document.getElementById('box').innerHTML = all;
+            security();
         }
 		
 	})
 	
 }
 
-document.getElementById('price-slider').oninput = function () {
+/*document.getElementById('price-slider').oninput = function () {
+	security();
 	var price = document.getElementById('price-slider').value;
 	
 	$.ajax({
@@ -80,10 +81,9 @@ document.getElementById('price-slider').oninput = function () {
             		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
             		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
             		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-            		'<sec:authorize access="isAuthenticated()">' +
             		'<div class="product-option-shop">' + 
             		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-            		'</div></sec:authorize></div></div>';
+            		'</div></div></div>';
             }
             document.getElementById('max-price').innerHTML = "Max price: $" + price;
             document.getElementById('box').innerHTML = all;
@@ -91,7 +91,7 @@ document.getElementById('price-slider').oninput = function () {
 		
 	})
 	
-}
+}*/
 
 function loadAllProducts() {
 	
@@ -109,12 +109,12 @@ function loadAllProducts() {
             		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
             		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
             		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-            		'<sec:authorize access="isAuthenticated()">' +
             		'<div class="product-option-shop">' + 
             		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-            		'</div></sec:authorize></div></div>';
+            		'</div></div></div>';
             }
             document.getElementById('box').innerHTML = all;
+            security();
         }
     })
     
@@ -154,19 +154,17 @@ function addToCart(index) {
 	            		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
 	            		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
 	            		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-	            		'<sec:authorize access="isAuthenticated()">' +
 	            		'<div class="product-option-shop">' + 
 	            		'<a class="add_to_cart_button">In cart</a>' +
-	            		'</div></sec:authorize></div></div>';
+	            		'</div></div></div>';
             	} else {
             		all += '<div class="col-md-3 col-sm-6"><div class="single-shop-product">' +
 	            		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
 	            		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
 	            		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-	            		'<sec:authorize access="isAuthenticated()">' +
 	            		'<div class="product-option-shop">' + 
 	            		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-	            		'</div></sec:authorize></div></div>';
+	            		'</div></div></div>';
             	}
             }
             document.getElementById('box').innerHTML = all;
@@ -192,13 +190,19 @@ function category(index) {
             		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
             		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
             		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-            		'<sec:authorize access="isAuthenticated()">' +
             		'<div class="product-option-shop">' + 
-            		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-            		'</div></sec:authorize></div></div>';
+            		'<a class="add_to_cart_button" id="add_to_cart" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
+            		'</div></div></div>';
             }
             document.getElementById('box').innerHTML = all;
+            security();
         }
     })
 	
+}
+
+function security() {
+	if(document.getElementById('security').value == 'anonymousUser') {
+		$('.add_to_cart_button').hide();
+	}
 }

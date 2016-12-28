@@ -12,7 +12,12 @@
     display: block;
     margin: 0 auto 15px;
 }
-a:focus { outline: 0px solid }
+a {
+	cursor: pointer;
+}
+a:focus { 
+	outline: 0px solid 
+	}
 img {
     max-width: 100%;
     height: auto;

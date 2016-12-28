@@ -27,18 +27,16 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(Model model) {
-		
 		model.addAttribute("user", new User());
-		
 		return "views-user-login";
 	}
 	
 	@RequestMapping(value="/saveuser", method=RequestMethod.POST)
 	public String saveuser(@ModelAttribute User user, @RequestParam String confirmPass, Model model) {
-		
+
 		String uuid = UUID.randomUUID().toString();
-		user.setUuid(uuid);
-		
+		userService.setUUID(user, uuid);
+				
 		try {
 			userService.save(user, confirmPass);
 		} catch (Exception e) {
@@ -55,11 +53,7 @@ public class UserController {
 	
 	@RequestMapping(value="/confirm/{uuid}", method=RequestMethod.GET)
 	public String confirm(@PathVariable String uuid) {
-		User user = userService.getByUUID(uuid);
-		user.setEnabled(true);
-		
-		userService.update(user);
-		
+		userService.setEnabled(uuid);
 		return "redirect:/";
 	}
 	
@@ -67,31 +61,24 @@ public class UserController {
 	public String usersList(Model model) {
 		model.addAttribute("users", userService.getWithRole(Role.ROLE_USER));
 		model.addAttribute("admins", userService.getWithRole(Role.ROLE_ADMIN));
-		
 		return "views-admin-userslist";
 	}
 	
 	@RequestMapping(value="/deleteuser/{id}", method=RequestMethod.GET)
 	public String delete(@PathVariable String id) {
-		
 		userService.delete(Integer.parseInt(id));
-		
 		return "redirect:/userslist";
 	}
 	
 	@RequestMapping(value="/changerole/{id}", method=RequestMethod.GET)
 	public String changeRole(@PathVariable String id) {
-		
 		userService.changeRole(Integer.parseInt(id));
-		
 		return "redirect:/userslist";
 	}
 	
 	@RequestMapping(value="/changeenabled/{id}", method=RequestMethod.GET)
 	public String changeEnabled(@PathVariable String id) {
-		
 		userService.changeEnabled(Integer.parseInt(id));
-		
 		return "redirect:/userslist";
 	}
 

@@ -39,5 +39,6 @@
     
 <input type="hidden" name="csrf_name" value="${_csrf.parameterName}" />
 <input type="hidden" name="csrf_value" value="${_csrf.token}" />
+<input type="hidden" name="security" value="<sec:authentication property="name"/>" id="security"/>
 
 <script src="<c:url value="/js/products.js"/>"></script>

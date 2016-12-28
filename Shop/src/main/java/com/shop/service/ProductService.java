@@ -9,7 +9,7 @@ import com.shop.entity.Product;
 
 public interface ProductService {
 	
-	void save(Product product, int categoryId, MultipartFile multipartFile);
+	void save(Product product, int categoryId, MultipartFile multipartFile) throws Exception;
 
 	List<Product> getAll();
 
@@ -29,8 +29,14 @@ public interface ProductService {
     
     int[] getPriceLimit();
     
-    void changeImage(Product product, MultipartFile multipartFile);
+    void changeImage(Product product, MultipartFile multipartFile) throws Exception;
     
     void validation(Product product) throws Exception;
+    
+    void addToCart(int userId, int productId);
+    
+    void setCategory(Product product, int categoryId);
+    
+    void setSameImage(int id, Product product);
     
 }

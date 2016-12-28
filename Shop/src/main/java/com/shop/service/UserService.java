@@ -26,5 +26,9 @@ public interface UserService {
     User getByUUID(String uuid);
     
     List<User> getWithRole(Role role);
+    
+    void setUUID(User user, String uuid);
+    
+    void setEnabled(String uuid);
 
 }

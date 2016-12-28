@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.shop.dao.ProductDao;
-import com.shop.service.CategoryService;
 import com.shop.service.ProductService;
 
 @Controller
@@ -18,10 +16,7 @@ public class HomeController {
 	
 	@RequestMapping(value={ "/", "/index" }, method=RequestMethod.GET)
 	public String home(Model model) {
-		
-		int[] priceLimit = productService.getPriceLimit();		
-		model.addAttribute("priceLimit", priceLimit);
-		
+		model.addAttribute("priceLimit", productService.getPriceLimit());		
 		return "views-product-home";
 	}
 	

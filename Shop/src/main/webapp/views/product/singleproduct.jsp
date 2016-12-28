@@ -29,6 +29,7 @@
 								    <li><input type="file" name="pic"></li>
 								    <li><input type="submit" value="submit"></li>
 								    <li><input type="reset" value="cancle" onclick="cancle()"></li>
+								    <li><h5>${exception}</h5></li>
 							    </ul>
 							</form>
 						</div>
@@ -56,7 +57,7 @@
                                 </sec:authorize>
                                     
                                 <div class="product-inner-category">
-                                    <p>Category: <a href="">${product.category.name}</a></p>
+                                    <p>Category: ${product.category.name}</p>
                                 </div> 
                                     
                                 <div class="tab-content">

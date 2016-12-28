@@ -96,4 +96,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}
 	}
 
+	public void setUUID(User user, String uuid) {
+		user.setUuid(uuid);
+	}
+
+	public void setEnabled(String uuid) {
+		User user = userDao.getByUUID(uuid);
+		user.setEnabled(true);
+		userDao.update(user);
+	}
+
 }

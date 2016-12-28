@@ -12,12 +12,12 @@
 	<h2>new product</h2>
 	<h5>${exception}</h5>
 	<br>
-	<form:form class="form" action="./savechanges_${product.id}" method="post">	
-        <input name="name" type="text" placeholder="name" value="${product.name}"/>
+	<form:form class="form" modelAttribute="product" action="./savechanges_${product.id}" method="post">	
+        <form:input path="name" type="text" placeholder="name" value="${product.name}"/>
         <br>
-		<input name="price" type="number" placeholder="price" value="${product.price}"/>
+		<form:input path="price" type="number" placeholder="price" value="${product.price}"/>
 		<br>
-		<input name="description" type="text" placeholder="description" value="${product.description}"/>
+		<form:input path="description" type="text" placeholder="description" value="${product.description}"/>
 		<br>
 		<select name="categoryId">
 			<c:forEach var="category" items="${categories}">

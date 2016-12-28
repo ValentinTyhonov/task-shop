@@ -3,7 +3,6 @@ package com.shop.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.shop.dao.CategoryDao;
@@ -11,7 +10,6 @@ import com.shop.dao.ProductDao;
 import com.shop.entity.Category;
 import com.shop.entity.Product;
 import com.shop.service.CategoryService;
-import com.shop.validator.Validator;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

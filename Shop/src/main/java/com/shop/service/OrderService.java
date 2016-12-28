@@ -3,6 +3,7 @@ package com.shop.service;
 import java.util.List;
 
 import com.shop.entity.Order;
+import com.shop.entity.Product;
 import com.shop.entity.User;
 
 public interface OrderService {
@@ -20,5 +21,11 @@ public interface OrderService {
     Order getNotPaidByUser(User user);
     
     void placeOrder(Order order, int total);
+    
+    int totalPrice(List<Product> products);
+    
+    void removeFromCart(int userId, int productId);
+    
+    String listOfBoughtProducts(Order order);
 
 }
