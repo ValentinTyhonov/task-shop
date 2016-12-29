@@ -44,4 +44,10 @@ public class UserDaoImpl extends GeneralDaoImpl<User> implements UserDao {
 				.setParameter("role", role).getResultList();
 	}
 
+	public User getWithOrders(int id) {
+		return (User) entityManager.createQuery
+				("select distinct u from User u left join fetch u.orders where u.id = :id")
+				.setParameter("id", id).getSingleResult();
+	}
+
 }

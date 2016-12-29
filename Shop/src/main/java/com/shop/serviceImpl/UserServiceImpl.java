@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	public void delete(int id) {
-		User user = userDao.getOne(id);
+		User user = userDao.getWithOrders(id);
 		user.getOrders().clear();
 		update(user);
 		userDao.delete(id);

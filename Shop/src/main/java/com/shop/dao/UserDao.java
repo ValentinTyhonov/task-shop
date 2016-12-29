@@ -12,5 +12,7 @@ public interface UserDao extends GeneralDao<User> {
 	User getByUUID(String uuid);
 	
 	List<User> getWithRole(Role role);
+	
+	User getWithOrders(int id);
 
 }
