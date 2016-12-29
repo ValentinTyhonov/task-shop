@@ -83,7 +83,7 @@ function loadAllCategories() {
 }
 
 function deleteCategory(index) {
-	
+	document.getElementById('categoryname').value = '';
 	$.ajax({
 
         url: 'deletecategory?' + $('input[name=csrf_name]').val() + "=" + $('input[name=csrf_value]').val(),

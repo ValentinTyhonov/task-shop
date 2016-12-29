@@ -2,8 +2,6 @@
 
 <link href="<c:url value="/css/form.css"/>" rel="stylesheet">
 
-<script src="<c:url value="/js/jquery-3.1.1.js"/>"></script>
-
 <style>
 	.mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.admin-active a {background: #5a88ca; color:#FFF;}
 </style>

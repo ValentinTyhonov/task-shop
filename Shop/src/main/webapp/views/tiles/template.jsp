@@ -16,14 +16,14 @@
 		<link href="<c:url value="http://fonts.googleapis.com/css?family=Raleway:400,100"/>" rel="stylesheet">
     
 		<!-- Bootstrap -->
-		<link href="<c:url value="css/bootstrap.min.css"/>" rel="stylesheet">
+		<link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
     
 		<!-- Font Awesome -->
-		<link href="<c:url value="css/font-awesome.min.css"/>" rel="stylesheet">
+		<link href="<c:url value="/css/font-awesome.min.css"/>" rel="stylesheet">
     
 		<!-- Custom CSS -->
-		<link href="<c:url value="css/style.css"/>" rel="stylesheet">
-		<link href="<c:url value="css/responsive.css"/>" rel="stylesheet">
+		<link href="<c:url value="/css/style.css"/>" rel="stylesheet">
+		<link href="<c:url value="/css/responsive.css"/>" rel="stylesheet">
 		
 		<!-- jQuery -->
 		<script src="<c:url value="/js/jquery-3.1.1.js"/>"></script>

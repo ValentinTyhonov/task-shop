@@ -62,37 +62,6 @@ document.getElementById('price-slider').oninput = function () {
 	
 }
 
-/*document.getElementById('price-slider').oninput = function () {
-	security();
-	var price = document.getElementById('price-slider').value;
-	
-	$.ajax({
-		
-		url: 'rangeprice?' + $('input[name=csrf_name]').val() + "=" + $('input[name=csrf_value]').val(),
-        method: 'POST',
-        contentType: 'application/json; charset=UTF-8',
-        dataType: 'json',
-        data: price,
-        success: function (res) {
-        	var all = '';
-        	
-        	for (var i = 0; i < res.length; i++) {
-            	all += '<div class="col-md-3 col-sm-6"><div class="single-shop-product">' +
-            		'<div class="product-upper"><img src="' + res[i].image + '"></div>' +
-            		'<h2><a href="singleproduct_' + res[i].id + '">' + res[i].name + '</a></h2>' +
-            		'<div class="product-carousel-price">$' + res[i].price + '</div>' +
-            		'<div class="product-option-shop">' + 
-            		'<a class="add_to_cart_button" onclick="addToCart(' + res[i].id + ')">Add to cart</a>' +
-            		'</div></div></div>';
-            }
-            document.getElementById('max-price').innerHTML = "Max price: $" + price;
-            document.getElementById('box').innerHTML = all;
-        }
-		
-	})
-	
-}*/
-
 function loadAllProducts() {
 	
 	$.ajax({
