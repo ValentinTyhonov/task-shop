@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class User implements UserDetails {
 	private boolean enabled;
 	private String uuid;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
 	private List<Order> orders;
 	
 	@Enumerated

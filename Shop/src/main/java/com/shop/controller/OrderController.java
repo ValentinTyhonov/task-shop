@@ -61,8 +61,6 @@ public class OrderController {
 	public String placeOrder(Principal principal, @RequestParam("totalPrice") String totalPrice, @RequestParam String shipping_first_name, 
 			@RequestParam String shipping_last_name, @RequestParam String billing_card_number, @RequestParam String billing_first_name, 
 			@RequestParam String billing_last_name, Model model) {
-
-		orderService.placeOrder(orderService.getNotPaidByUser(userService.getOne(Integer.parseInt(principal.getName()))), Integer.parseInt(totalPrice));
 		
 		String theme = "Your purchase is completed";
 		String mailBody = "Dear " + shipping_first_name + " " + shipping_last_name + 
@@ -70,6 +68,7 @@ public class OrderController {
 				" (card owner - " + billing_first_name + " " + billing_last_name + 
 				").\n\n" + orderService.listOfBoughtProducts(orderService.getNotPaidByUser(userService.getOne(Integer.parseInt(principal.getName())))) + 
 				"\nTotal price: $" + totalPrice;
+		orderService.placeOrder(orderService.getNotPaidByUser(userService.getOne(Integer.parseInt(principal.getName()))), Integer.parseInt(totalPrice));
 		mailSenderService.sendMail(theme, mailBody, userService.getOne(Integer.parseInt(principal.getName())).getEmail());
 		
 		return "redirect:/";

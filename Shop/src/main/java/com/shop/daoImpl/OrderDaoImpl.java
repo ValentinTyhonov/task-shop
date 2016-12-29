@@ -1,5 +1,7 @@
 package com.shop.daoImpl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -23,6 +25,13 @@ public class OrderDaoImpl extends GeneralDaoImpl<Order> implements OrderDao {
 		return (Order) entityManager.createQuery
 				("select o from orders o where o.user = :user AND o.paid = false")
 				.setParameter("user", user).getSingleResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Order> getByUser(User user) {
+		return (List<Order>) entityManager.createQuery
+				("select o from orders o where o.user = :user")
+				.setParameter("user", user).getResultList();
 	}
 
 }

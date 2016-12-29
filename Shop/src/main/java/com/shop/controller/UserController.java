@@ -41,9 +41,10 @@ public class UserController {
 			userService.save(user, confirmPass);
 		} catch (Exception e) {
 			model.addAttribute("exception", e.getMessage());
+			e.printStackTrace();
 			return "views-user-login";
 		}
-
+		
 		String theme = "Thank you for registration";
 		String mailBody = "http://localhost:8080/Shop/confirm/" + uuid;
 		mailSenderService.sendMail(theme, mailBody, user.getEmail());
