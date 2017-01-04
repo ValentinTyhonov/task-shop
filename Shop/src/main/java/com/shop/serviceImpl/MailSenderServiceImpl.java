@@ -20,7 +20,7 @@ import com.shop.service.MailSenderService;
 public class MailSenderServiceImpl implements MailSenderService {
 	
 	private final static String USERNAME = "valentin.tyhonov@gmail.com";
-	private final static String PASSWORD = "AspireV5-572G";
+	private final static String PASSWORD = "**********";
 
 	@Async
 	public void sendMail(String theme, String mailBody, String email) {
